@@ -30,6 +30,7 @@ class Task(models.Model):
     )
     project = models.ForeignKey(
         Project, on_delete=models.CASCADE)
+
     complete = models.BooleanField(
         default=False,
         help_text="Task completed or not"
