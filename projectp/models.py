@@ -20,7 +20,7 @@ class Project(models.Model):
 
 
 class Task(models.Model):
-    """Task labels, details and completion"""
+    """Task labels, details and completion, assigned to a project"""
     label = models.CharField(
         max_length=50,
         help_text="Label of the task"
@@ -28,13 +28,15 @@ class Task(models.Model):
     description = models.TextField(
         help_text="Task description"
     )
-    project = models.ForeignKey(
-        Project, on_delete=models.CASCADE)
 
     complete = models.BooleanField(
         default=False,
         help_text="Task completed or not"
     )
+
+    project = models.ForeignKey(
+        Project, on_delete=models.CASCADE, help_text="Project id that contains task,")
+
 
     def __str__(self):
         return self.label
