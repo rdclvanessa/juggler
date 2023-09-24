@@ -1,5 +1,5 @@
 from django.db import models
-
+from django.contrib import auth
 
 class Project(models.Model):
     """Project name and details"""
@@ -36,7 +36,6 @@ class Task(models.Model):
 
     project = models.ForeignKey(
         Project, on_delete=models.CASCADE, help_text="Project id that contains task,")
-
 
     def __str__(self):
         return self.label
